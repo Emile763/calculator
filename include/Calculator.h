@@ -8,7 +8,7 @@ using buttonContainer = std::vector<Button>;
 class Calculator
 {
 public:
-	Calculator(sf::Font *font);
+	Calculator(sf::Font &font);
 	~Calculator();
 
 	
@@ -26,7 +26,6 @@ private:
 
 	Window m_window;
 	buttonContainer m_buttons;
-	sf::Font *m_font;
 	sf::Text m_input;
 	sf::Text m_output;
 	std::string m_calcul;

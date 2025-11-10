@@ -4,11 +4,11 @@ int main()
 {
 
 	sf::Font font;
-	if (font.loadFromFile("arial.ttf"))
+	if (font.openFromFile("font/NotoSans-Regular.ttf"))
 	{
 
 	}
-	Calculator calculator(&font);
+	Calculator calculator(font);
 	
 	while (!calculator.getWindow()->isDone())
 	{

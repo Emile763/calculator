@@ -11,24 +11,16 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
-option(ONLY_LIBS "" ON)
-add_subdirectory(third-party/glew)
-
-set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-# Needed because glfw doesn't work with wayland
-set(GLFW_BUILD_WAYLAND OFF CACHE BOOL "" FORCE)
-add_subdirectory(third-party/glfw)
+add_subdirectory(third-party/SFML)
 
 add_executable("CalculatorApp" 
-    src/main
+    src/main.cpp
     src/Button.cpp
     src/Calculator.cpp
     src/Window.cpp
     )
 file(COPY ./font DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 target_include_directories("CalculatorApp" PRIVATE include)
-target_link_libraries("CalculatorApp" glfw GL libglew_static)
+target_link_libraries("CalculatorApp" SFML::Graphics SFML::Window SFML::System)
 
 

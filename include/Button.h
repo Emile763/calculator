@@ -1,12 +1,12 @@
 #pragma once
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Window.h"
 class Button
 {
 public:
 
-	Button(sf::Vector2f pos, std::string t, char out);
+	Button(sf::Vector2f pos, std::string t, char out, const sf::Font &font);
 	
 	~Button();
 
@@ -19,7 +19,6 @@ public:
 private:
 	
 
-	sf::Font m_font;
 	sf::Text m_text;
 	sf::Vector2f m_position;
 	sf::Vector2f m_size;
